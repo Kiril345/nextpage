@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Our process</title>
     <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
@@ -54,22 +54,24 @@
                     <div class="active_process">
                         <div class="hidden col-md-12 previous_process"><a href="#">previous process<i class="icon previous icon-arrow_up"></i></a></div>
                         <div class="slider">
-                            <div class="row">
-                                <div class="col-12 col-md-7 col-xl-6 d-flex  align-items-md-center offset-xl-1">
+                            <div class="d-flex flex-wrap">
+                                <div class="col-12 col-md-7 col-xl-6 align-items-md-center offset-xl-1">
                                     <div class="card">
                                         <img class="card-img-top" src="images/glasses.jpg" alt="glasses">
                                     </div>
                                 </div>
-                                <div class="mob_navigation col-12 d-flex text-center justify-content-center">
-                                    <div class="flex-fill nav_number pl-0 next_process"><i class="rotate icon icon-arrow_up orange"></i></div>
-                                    <div class="flex-fill nav_number shadow_block"><span class="">01</span></div>
-                                    <div class="flex-fill nav_number shadow_block active_block border_mob"><span>02</span></div>
-                                    <div class="flex-fill nav_number shadow_block "><span>03</span></div>
-                                    <div class="flex-fill nav_number shadow_block border_mob"><span>04</span></div>
-                                    <div class="flex-fill nav_number shadow_block "><span>05</span></div>
-                                    <div class="flex-fill nav_number pr-0 previous_process"><i class="rotate icon icon-arrow_down orange"></i></div>
+                                <div class="mob_navigation col-12 text-center justify-content-center">
+                                    <div class="d-flex flex-nowrap">
+                                        <div class="flex-fill nav_number pl-0 next_process"><i class="rotate icon icon-arrow_up orange"></i></div>
+                                        <div class="flex-fill nav_number shadow_block"><span class="">01</span></div>
+                                        <div class="flex-fill nav_number shadow_block active_block border_mob"><span>02</span></div>
+                                        <div class="flex-fill nav_number shadow_block "><span>03</span></div>
+                                        <div class="flex-fill nav_number shadow_block border_mob"><span>04</span></div>
+                                        <div class="flex-fill nav_number shadow_block "><span>05</span></div>
+                                        <div class="flex-fill nav_number pr-0 previous_process"><i class="rotate icon icon-arrow_down orange"></i></div>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-md-5 col-xl-5 d-flex align-items-md-center">
+                                <div class="col-12 col-md-5 col-xl-5 align-items-md-center">
                                     <div>
                                         <h2>Active Process</h2>
                                         <p class="tittle_text">Red and rounded</p>
@@ -82,20 +84,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 col-md-7 col-xl-6 d-flex  align-items-md-center offset-xl-1">
+                            <div class="d-flex flex-wrap">
+                                <div class="col-12 col-md-7 col-xl-6 align-items-md-center offset-xl-1">
                                     <div class="card">
                                         <img class="card-img-top" src="images/glasses.jpg" alt="glasses">
                                     </div>
                                 </div>
-                                <div class="mob_navigation col-12 d-flex text-center justify-content-center">
-                                    <div class="flex-fill nav_number pl-0 next_process"><i class="rotate icon icon-arrow_up orange"></i></div>
-                                    <div class="flex-fill nav_number shadow_block"><span class="">01</span></div>
-                                    <div class="flex-fill nav_number shadow_block active_block border_mob"><span>02</span></div>
-                                    <div class="flex-fill nav_number shadow_block "><span>03</span></div>
-                                    <div class="flex-fill nav_number shadow_block border_mob"><span>04</span></div>
-                                    <div class="flex-fill nav_number shadow_block "><span>05</span></div>
-                                    <div class="flex-fill nav_number pr-0 previous_process"><i class="rotate icon icon-arrow_down orange"></i></div>
+                                <div class="mob_navigation col-12 text-center justify-content-center">
+                                    <div class="d-flex flex-nowrap">
+                                        <div class="flex-fill nav_number pl-0 next_process"><i class="rotate icon icon-arrow_up orange"></i></div>
+                                        <div class="flex-fill nav_number shadow_block"><span class="">01</span></div>
+                                        <div class="flex-fill nav_number shadow_block active_block border_mob"><span>02</span></div>
+                                        <div class="flex-fill nav_number shadow_block "><span>03</span></div>
+                                        <div class="flex-fill nav_number shadow_block border_mob"><span>04</span></div>
+                                        <div class="flex-fill nav_number shadow_block "><span>05</span></div>
+                                        <div class="flex-fill nav_number pr-0 previous_process"><i class="rotate icon icon-arrow_down orange"></i></div>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-md-5 col-xl-5 d-flex align-items-md-center">
                                     <div>
@@ -202,17 +206,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('.slider').bxSlider({
-                mode: 'vertical',
-                captions: false,
-                touchEnabled: true
-            });
+            if ($(this).width() < 991){
+            $('.slider').slick({
+              //dots: true,
+              horizontal: true,
+              //slidesToShow: 5,
+              //slidesToScroll: 5,
+              horizontalSwiping: true,
+            });}
+            if ($(this).width() > 991){
+            $('.slider').slick({
+              //dots: true,
+              vertical: true,
+              //slidesToShow: 5,
+              //slidesToScroll: 5,
+              verticalSwiping: true,
+            });}
             $('.previous_process').click(function() {
-                $('.bx-prev').click();
+                $('.slick-prev').click();
                 return false;
             });
             $('.next_process').click(function() {
-                $('.bx-next').click();
+                $('.slick-next').click();
                 return false;
             });
             $('#talk').click(function() {
@@ -228,7 +243,7 @@
             });
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script type="text/javascript" src="js/main.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
